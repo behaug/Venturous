@@ -60,7 +60,8 @@ namespace Venturous
         /// <summary>Navigates the browser to the given URL</summary>
         public void GoTo(string url)
         {
-            _browser.GoTo(url);
+            _browser.NativeBrowser.NavigateTo(new Uri(url));
+            _browser.DomContainer.WaitForComplete(100); // Extra long timeout to allow the application to boot up
         }
 
         /// <summary>Returns the URL of the current page</summary>

@@ -7,8 +7,26 @@
     </boolean>
   </SettingsComponent>
   <RecentFiles>
-    <RecentFiles />
-    <RecentEdits />
+    <RecentFiles>
+      <File id="0BC4B2E2-84BE-4258-AD91-B481868D7753/f:SlowBoot.aspx" caret="433" fromTop="11" />
+      <File id="0BC4B2E2-84BE-4258-AD91-B481868D7753/f:SlowBoot.aspx.cs" caret="375" fromTop="14" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatApplication.cs" caret="464" fromTop="3" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="1140" fromTop="10" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatPage.cs" caret="383" fromTop="11" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatBrowser.cs" caret="2051" fromTop="12" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="2500" fromTop="6" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="1484" fromTop="55" />
+      <File id="0BC4B2E2-84BE-4258-AD91-B481868D7753/f:SlowBoot.aspx" caret="433" fromTop="11" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="2484" fromTop="12" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="3412" fromTop="5" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="3503" fromTop="10" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="4165" fromTop="17" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="4311" fromTop="17" />
+      <File id="0BC4B2E2-84BE-4258-AD91-B481868D7753/f:SlowBoot.aspx.cs" caret="366" fromTop="14" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatBrowser.cs" caret="2166" fromTop="13" />
+    </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
     <NAntPath value="" />
@@ -20,4 +38,42 @@
     <NUnitInstallDir>C:\Program Files (x86)\NUnit 2.5.5\bin\net-2.0\</NUnitInstallDir>
     <UseAddins>Never</UseAddins>
   </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="_browser" priority="1" />
+      <Item value="ThreadStaticAttribute`0" priority="0" />
+      <Item value="public" priority="1" />
+      <Item value="void" priority="1" />
+      <Item value="_app" priority="1" />
+      <Item value="Is`0" priority="0" />
+      <Item value="SlowBootPage" priority="0" />
+      <Item value="class" priority="0" />
+      <Item value="WatPage`0" priority="0" />
+      <Item value="string" priority="0" />
+      <Item value="return" priority="0" />
+      <Item value="Element" priority="0" />
+      <Item value="Uri" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:WatiN.Core.Browser">
+      <Item value="WaitForComplete`0" priority="0" />
+      <Item value="NativeBrowser" priority="1" />
+      <Item value="DomContainer" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
+      <Item value="That`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework.Is">
+      <Item value="EqualTo`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Venturous.WatElement">
+      <Item value="FindId`0" priority="0" />
+      <Item value="Text" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:WatiN.Core.Native.INativeBrowser">
+      <Item value="NavigateTo`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:WatiN.Core.DomContainer">
+      <Item value="WaitForComplete`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
 </Configuration>

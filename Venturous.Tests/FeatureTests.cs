@@ -80,6 +80,13 @@ namespace Venturous.Tests
             string messageText;
             Assert.Throws<Exception>(() => messageText = _app.FrameContentPage.MessageDiv1.MessageText);
         }
+
+        [Test]
+        public void WaitsForSlowBoot()
+        {
+            _app.OpenSlowBoot();
+            Assert.That(_app.SlowBootPage.Greeting, Is.EqualTo("Hello"));
+        }
     }
 
     class TestApplication : WatApplication
@@ -116,6 +123,11 @@ namespace Venturous.Tests
             Browser.GoTo(BaseUrl + "UpdPanel.aspx");
         }
 
+        public void OpenSlowBoot()
+        {
+            Browser.GoTo(BaseUrl + "SlowBoot.aspx");
+        }
+
         public DefaultPage DefaultPage
         {
             get { return Browser.Page<DefaultPage>(); }
@@ -134,6 +146,19 @@ namespace Venturous.Tests
         public UpdPanelPage UpdPanelPage
         {
             get { return Browser.Page<UpdPanelPage>(); }
+        }
+
+        public SlowBootPage SlowBootPage
+        {
+            get { return Browser.Page<SlowBootPage>(); }
+        }
+    }
+
+    class SlowBootPage : WatPage
+    {
+        public string Greeting
+        {
+            get { return Element.FindId("greeting").Text; }
         }
     }
 
