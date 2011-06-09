@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Venturous", "Venturous\Venturous.csproj", "{DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Venturous.Tests", "Venturous.Tests\Venturous.Tests.csproj", "{5516C9E3-052F-4A94-8536-F43F94AC8AEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Venturous.TestWeb", "Venturous.TestWeb\Venturous.TestWeb.csproj", "{0BC4B2E2-84BE-4258-AD91-B481868D7753}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://p0osltfs01:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Venturous\\Venturous.csproj
+		SccProjectName1 = Venturous
+		SccLocalPath1 = Venturous
+		SccProjectUniqueName2 = Venturous.Tests\\Venturous.Tests.csproj
+		SccProjectName2 = Venturous.Tests
+		SccLocalPath2 = Venturous.Tests
+		SccProjectUniqueName3 = Venturous.TestWeb\\Venturous.TestWeb.csproj
+		SccProjectName3 = Venturous.TestWeb
+		SccLocalPath3 = Venturous.TestWeb
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5516C9E3-052F-4A94-8536-F43F94AC8AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5516C9E3-052F-4A94-8536-F43F94AC8AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5516C9E3-052F-4A94-8536-F43F94AC8AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5516C9E3-052F-4A94-8536-F43F94AC8AEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BC4B2E2-84BE-4258-AD91-B481868D7753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BC4B2E2-84BE-4258-AD91-B481868D7753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BC4B2E2-84BE-4258-AD91-B481868D7753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BC4B2E2-84BE-4258-AD91-B481868D7753}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
