@@ -31,8 +31,7 @@ namespace Venturous.Tests
         public void ServerError()
         {
             _app.OpenDefault();
-            var ex = Assert.Throws<ServerErrorException>(() => _app.DefaultPage.ClickServerErrorButton());
-            //Trace.WriteLine(ex.ToString());
+            Assert.Throws<ServerErrorException>(() => _app.DefaultPage.ClickServerErrorButton());
         }
 
         [Test]
@@ -77,8 +76,9 @@ namespace Venturous.Tests
         public void ThrowsOnMissingElement()
         {
             _app.OpenDefault();
-            string messageText;
-            Assert.Throws<Exception>(() => messageText = _app.FrameContentPage.MessageDiv1.MessageText);
+            Assert.Throws<Exception>(() => { 
+                var messageText = _app.FrameContentPage.MessageDiv1.MessageText; 
+            });
         }
 
         [Test]
@@ -86,6 +86,49 @@ namespace Venturous.Tests
         {
             _app.OpenSlowBoot();
             Assert.That(_app.SlowBootPage.Greeting, Is.EqualTo("Hello"));
+        }
+
+        [Test]
+        public void GetText()
+        {
+            _app.OpenTextAndValue();
+            var page = _app.TextAndValuePage;
+
+            AssertText(page.Span1, "text");
+            AssertText(page.Text1, "value");
+            AssertText(page.Text2, "value");
+            AssertText(page.Check1, "");
+            AssertText(page.Radio1, "");
+            AssertText(page.Button1, "value");
+            AssertText(page.Textarea1, "text");
+        }
+
+        [Test]
+        public void SetText()
+        {
+            _app.OpenTextAndValue();
+            var page = _app.TextAndValuePage;
+
+            Assert.Throws<Exception>(() => page.Span1.Text = "text");
+            Assert.Throws<Exception>(() => page.Check1.Text = "a");
+            Assert.Throws<Exception>(() => page.Radio1.Text = "a");
+
+            page.Text1.Text = "1";
+            AssertText(page.Text1, "1");
+
+            page.Text2.Text = "2";
+            AssertText(page.Text2, "2");
+            
+            page.Button1.Text = "3";
+            AssertText(page.Button1, "3");
+
+            page.Textarea1.Text = "4";
+            AssertText(page.Textarea1, "4");
+        }
+
+        private void AssertText(WatElement element, string text)
+        {
+            Assert.That(element.Text, Is.EqualTo(text), "Wrong text on " + element);
         }
     }
 
@@ -128,6 +171,11 @@ namespace Venturous.Tests
             Browser.GoTo(BaseUrl + "SlowBoot.aspx");
         }
 
+        public void OpenTextAndValue()
+        {
+            Browser.GoTo(BaseUrl + "TextAndValue.aspx");
+        }
+
         public DefaultPage DefaultPage
         {
             get { return Browser.Page<DefaultPage>(); }
@@ -152,6 +200,22 @@ namespace Venturous.Tests
         {
             get { return Browser.Page<SlowBootPage>(); }
         }
+
+        public TextAndValuePage TextAndValuePage
+        {
+            get { return Browser.Page<TextAndValuePage>(); }
+        }
+    }
+
+    class TextAndValuePage : WatPage
+    {
+        public WatElement Span1 { get { return Element.FindId("span1"); } }
+        public WatElement Text1 { get { return Element.FindId("text1"); } }
+        public WatElement Text2 { get { return Element.FindId("text2"); } }
+        public WatElement Check1 { get { return Element.FindId("check1"); } }
+        public WatElement Radio1 { get { return Element.FindId("radio1"); } }
+        public WatElement Button1 { get { return Element.FindId("button1"); } }
+        public WatElement Textarea1 { get { return Element.FindId("textarea1"); } }
     }
 
     class SlowBootPage : WatPage

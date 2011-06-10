@@ -10,22 +10,48 @@
     <RecentFiles>
       <File id="0BC4B2E2-84BE-4258-AD91-B481868D7753/f:SlowBoot.aspx" caret="433" fromTop="11" />
       <File id="0BC4B2E2-84BE-4258-AD91-B481868D7753/f:SlowBoot.aspx.cs" caret="375" fromTop="14" />
-      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatApplication.cs" caret="464" fromTop="3" />
-      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="1140" fromTop="10" />
-      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatPage.cs" caret="383" fromTop="11" />
-      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatBrowser.cs" caret="2051" fromTop="12" />
-      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="2500" fromTop="6" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:BrowserType.cs" caret="0" fromTop="0" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:ServerErrorException.cs" caret="0" fromTop="0" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatApplication.cs" caret="464" fromTop="0" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatBrowser.cs" caret="2051" fromTop="15" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatControl.cs" caret="0" fromTop="0" />
+      <File id="0BC4B2E2-84BE-4258-AD91-B481868D7753/f:TextAndValue.aspx" caret="723" fromTop="16" />
+      <File id="0BC4B2E2-84BE-4258-AD91-B481868D7753/f:Default.aspx" caret="532" fromTop="6" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatPage.cs" caret="304" fromTop="7" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="2068" fromTop="11" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="141" fromTop="7" />
     </RecentFiles>
     <RecentEdits>
-      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="1484" fromTop="55" />
-      <File id="0BC4B2E2-84BE-4258-AD91-B481868D7753/f:SlowBoot.aspx" caret="433" fromTop="11" />
-      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="2484" fromTop="12" />
-      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="3412" fromTop="5" />
-      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="3503" fromTop="10" />
-      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="4165" fromTop="17" />
-      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="4311" fromTop="17" />
-      <File id="0BC4B2E2-84BE-4258-AD91-B481868D7753/f:SlowBoot.aspx.cs" caret="366" fromTop="14" />
-      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatBrowser.cs" caret="2166" fromTop="13" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="4192" fromTop="12" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="4990" fromTop="17" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="5507" fromTop="20" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="2954" fromTop="14" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="2913" fromTop="13" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="1429" fromTop="17" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="4363" fromTop="14" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="6231" fromTop="21" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="6154" fromTop="20" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="6010" fromTop="15" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="6926" fromTop="2" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="6487" fromTop="1" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="6866" fromTop="9" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="7009" fromTop="2" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="2962" fromTop="7" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="2702" fromTop="6" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="830" fromTop="8" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="3054" fromTop="8" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="1312" fromTop="10" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="2786" fromTop="9" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="3267" fromTop="11" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="3837" fromTop="10" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="5030" fromTop="11" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="994" fromTop="10" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="5681" fromTop="13" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="498" fromTop="0" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="498" fromTop="0" />
+      <File id="DEE33EDC-E424-40A0-9BA4-EC9F00D6E2E2/f:WatElement.cs" caret="2068" fromTop="14" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="6712" fromTop="9" />
+      <File id="5516C9E3-052F-4A94-8536-F43F94AC8AEB/f:FeatureTests.cs" caret="2333" fromTop="11" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -42,17 +68,28 @@
     <ItemStatistics item="Default">
       <Item value="_browser" priority="1" />
       <Item value="ThreadStaticAttribute`0" priority="0" />
-      <Item value="public" priority="1" />
-      <Item value="void" priority="1" />
-      <Item value="_app" priority="1" />
-      <Item value="Is`0" priority="0" />
+      <Item value="public" priority="3" />
+      <Item value="void" priority="2" />
+      <Item value="_app" priority="4" />
+      <Item value="Is`0" priority="1" />
       <Item value="SlowBootPage" priority="0" />
-      <Item value="class" priority="0" />
-      <Item value="WatPage`0" priority="0" />
-      <Item value="string" priority="0" />
-      <Item value="return" priority="0" />
-      <Item value="Element" priority="0" />
+      <Item value="class" priority="1" />
+      <Item value="WatPage`0" priority="1" />
+      <Item value="string" priority="2" />
+      <Item value="return" priority="5" />
+      <Item value="Element" priority="1" />
       <Item value="Uri" priority="0" />
+      <Item value="TextAndValuePage" priority="0" />
+      <Item value="WatElement`0" priority="0" />
+      <Item value="element" priority="2" />
+      <Item value="override" priority="0" />
+      <Item value="FullFindText`0" priority="0" />
+      <Item value="if" priority="2" />
+      <Item value="Root" priority="4" />
+      <Item value="else" priority="0" />
+      <Item value="Text" priority="0" />
+      <Item value="Value" priority="0" />
+      <Item value="ctor" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:WatiN.Core.Browser">
       <Item value="WaitForComplete`0" priority="0" />
@@ -60,20 +97,44 @@
       <Item value="DomContainer" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
-      <Item value="That`0" priority="0" />
+      <Item value="That`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Is">
-      <Item value="EqualTo`0" priority="0" />
+      <Item value="EqualTo`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Venturous.WatElement">
-      <Item value="FindId`0" priority="0" />
+      <Item value="FindId`0" priority="1" />
       <Item value="Text" priority="0" />
+      <Item value="Value" priority="0" />
+      <Item value="ToString`0" priority="0" />
+      <Item value="FindTag`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:WatiN.Core.Native.INativeBrowser">
       <Item value="NavigateTo`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:WatiN.Core.DomContainer">
       <Item value="WaitForComplete`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Venturous.Tests.TextAndValuePage">
+      <Item value="Span1" priority="0" />
+      <Item value="Text1" priority="0" />
+      <Item value="Textarea1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:WatiN.Core.Element">
+      <Item value="TagName" priority="1" />
+      <Item value="GetAttributeValue`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="ToLower`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Venturous.Tests.TestApplication">
+      <Item value="DefaultPage" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Venturous.Tests.DefaultPage">
+      <Item value="TopMenu" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Venturous.Tests.TestMenu">
+      <Item value="ClickGoogle`0" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>
