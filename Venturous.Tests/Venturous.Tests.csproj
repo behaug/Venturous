@@ -59,8 +59,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FeatureTests.cs" />
+    <Compile Include="Controls\DefaultPage.cs" />
+    <Compile Include="WatElementFixture.cs" />
+    <Compile Include="Controls\FrameContentPage.cs" />
+    <Compile Include="FrameworkFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\SlowBootPage.cs" />
+    <Compile Include="Controls\TestWeb.cs" />
+    <Compile Include="Controls\TextAndValuePage.cs" />
+    <Compile Include="Controls\UpdPanelPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Venturous\Venturous.csproj">
