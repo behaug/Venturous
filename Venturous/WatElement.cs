@@ -200,6 +200,10 @@ namespace Venturous
                     if (type == "checkbox" || type == "radio")
                         throw new Exception("Can not set text on checkbox: " + FullFindText());
 
+                    bool isDisabled = Root.GetAttributeValue("disabled").ToLower() == "disabled";
+                    if (isDisabled)
+                        throw new Exception("The input element is disabled");
+
                     RootAs<TextField>().Value = value;
                     return;
                 }

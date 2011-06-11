@@ -16,6 +16,9 @@
         <input id="radio1"  type="radio" value="value" /><br />
         <input id="button1" type="button" value="value" /><br />
         <textarea id="textarea1">text</textarea><br />
+
+        <input id="text_disabled" type="text" value="value" disabled="disabled" /><br />
+        <input id="button_disabled" type="submit" value="value" disabled="disabled" /><br />
     </div>
     </form>
 </body>

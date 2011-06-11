@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using Venturous.Tests.Controls;
+using WatiN.Core.Exceptions;
 
 namespace Venturous.Tests
 {
@@ -31,6 +32,7 @@ namespace Venturous.Tests
             Assert.That(page.Text2.Text, Is.EqualTo("value"));
             Assert.That(page.Button1.Text, Is.EqualTo("value"));
             Assert.That(page.Textarea1.Text, Is.EqualTo("text"));
+            Assert.That(page.TextDisabled.Text, Is.EqualTo("value"));
         }
 
         [Test]
@@ -79,6 +81,20 @@ namespace Venturous.Tests
             Assert.That(page.Text2.Text, Is.EqualTo("2"));
             Assert.That(page.Button1.Text, Is.EqualTo("3"));
             Assert.That(page.Textarea1.Text, Is.EqualTo("4"));
+        }
+
+        [Test]
+        public void SetText_OnDisabledInput_Throws()
+        {
+            _app.OpenTextAndValue();
+            Assert.Throws<Exception>(() => _app.TextAndValuePage.TextDisabled.Text = "whatever");
+        }
+
+        [Test]
+        public void Click_OnDisabledButton_Throws()
+        {
+            _app.OpenTextAndValue();
+            Assert.Throws<ElementDisabledException>(() => _app.TextAndValuePage.ButtonDisabled.Click());
         }
     }
 }
