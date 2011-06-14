@@ -11,6 +11,17 @@
         {
             get { return Element.FindId<TestMenu>("topMenu"); }
         }
+
+        public bool HasTopMenu
+        {
+            get { return Element.CanFindId("topMenu"); }
+        }
+
+        public bool HasFlamingLogo
+        {
+            get { return Element.CanFindId("flaming_logo"); }
+        }
+
     }
 
     class TestMenu : WatControl

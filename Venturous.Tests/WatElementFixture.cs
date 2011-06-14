@@ -96,5 +96,19 @@ namespace Venturous.Tests
             _app.OpenTextAndValue();
             Assert.Throws<ElementDisabledException>(() => _app.TextAndValuePage.ButtonDisabled.Click());
         }
+
+        [Test]
+        public void CanFindId_WhenElementExists_ReturnsTrue()
+        {
+            _app.OpenDefault();
+            Assert.IsTrue(_app.DefaultPage.HasTopMenu);
+        }
+
+        [Test]
+        public void CanFindId_WhenElementDoesntExists_ReturnsFalse()
+        {
+            _app.OpenDefault();
+            Assert.IsFalse(_app.DefaultPage.HasFlamingLogo);
+        }
     }
 }

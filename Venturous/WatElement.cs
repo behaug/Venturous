@@ -1,7 +1,6 @@
 ﻿using System;
 using Venturous.Infrastructure;
 using WatiN.Core;
-using WatiN.Core.Constraints;
 using WatiN.Core.Native;
 
 namespace Venturous
@@ -14,22 +13,20 @@ namespace Venturous
         private Document _document;
         private Div _root;
         private INativeElement _nativeElement;
-        private Constraint _findBy;
+        private Finder _finder;
         private WatElement _parent;
-        private string _findText;
 
-        internal void InitializeElement(Document document, Constraint findBy, WatElement parent, string findText)
+        private void InitializeElement(Document document, Finder finder, WatElement parent)
         {
             _document = document;
-            _findBy = findBy;
+            _finder = finder;
             _parent = parent;
-            _findText = findText;
             RefreshElement();
         }
 
         internal void InitializeElement(Document document)
         {
-            _findText = "body";
+            _finder = Finder.Body;
             _document = document;
             _nativeElement = new CustomNativeElement(document.Body.NativeElement, _document);
             _root = ElementFactory.CreateElement<Div>(_document.DomContainer, _nativeElement);
@@ -38,9 +35,9 @@ namespace Venturous
         private string FullFindText()
         {
             if (_parent == null)
-                return _findText;
+                return _finder.Description;
 
-            return _parent.FullFindText() + " " + _findText;
+            return _parent.FullFindText() + " " + _finder.Description;
         }
 
         public override string ToString()
@@ -64,7 +61,7 @@ namespace Venturous
             if (_nativeElement != null && _nativeElement.IsElementReferenceStillValid())
                 return;
 
-            var element = _parent._root.Element(_findBy);
+            var element = _parent._root.Element(_finder.Constraint);
             if (!element.Exists)
                 throw new Exception("Element not found: \"" + FullFindText() + "\"");
 
@@ -81,7 +78,13 @@ namespace Venturous
         /// <summary>Finds an element by id, where the id ends with the given value.</summary>
         public WatElement FindId(string id)
         {
-            return CreateElement(e => (e.Id ?? "").EndsWith(id), "#" + id);
+            return CreateElement(Finder.ById(id));
+        }
+
+        /// <summary>Returns whether an element can be found where the id ends with the given value.</summary>
+        public bool CanFindId(string id)
+        {
+            return CanFind(Finder.ById(id));
         }
 
         /// <summary>Finds a control by CSS class name.</summary>
@@ -93,7 +96,13 @@ namespace Venturous
         /// <summary>Finds an element by CSS class name.</summary>
         public WatElement FindClass(string cssClass)
         {
-            return CreateElement(e => e.ClassName == cssClass, "." + cssClass);
+            return CreateElement(Finder.ByClass(cssClass));
+        }
+
+        /// <summary>Returns whether an element can be found by CSS class name.</summary>
+        public bool CanFindClass(string cssClass)
+        {
+            return CanFind(Finder.ByClass(cssClass));
         }
 
         /// <summary>Finds a control by attribute value.</summary>
@@ -105,7 +114,13 @@ namespace Venturous
         /// <summary>Finds an element by attribute value.</summary>
         public WatElement FindAttribute(string attributeName, string value)
         {
-            return CreateElement(Find.By(attributeName, value), "[" + attributeName + "=" + value + "]");
+            return CreateElement(Finder.ByAttribute(attributeName, value));
+        }
+
+        /// <summary>Returns whether an element can be found by attribute value.</summary>
+        public bool CanFindAttribute(string attributeName, string value)
+        {
+            return CanFind(Finder.ByAttribute(attributeName, value));
         }
 
         /// <summary>Finds a control by tag name, taking the first one it finds.</summary>
@@ -117,7 +132,13 @@ namespace Venturous
         /// <summary>Finds an element by tag name, taking the first one it finds.</summary>
         public WatElement FindTag(string tagName)
         {
-            return CreateElement(e => e.TagName.ToLower() == tagName.ToLower(), tagName);
+            return CreateElement(Finder.ByTagName(tagName));
+        }
+
+        /// <summary>Returns whether an element can be found by tag name.</summary>
+        public bool CanFindTag(string tagName)
+        {
+            return CanFind(Finder.ByTagName(tagName));
         }
 
         /// <summary>Finds a control by tag name, taking the one at the given index.</summary>
@@ -129,9 +150,13 @@ namespace Venturous
         /// <summary>Finds an element by tag name, taking the one at the given index.</summary>
         public WatElement FindTag(string tagName, int index)
         {
-            return CreateElement(
-                Find.ByElement(e => e.TagName.ToLower() == tagName.ToLower()).And(Find.ByIndex(index)), 
-                tagName + ":" + index);
+            return CreateElement(Finder.ByTagName(tagName, index));
+        }
+
+        /// <summary>Returns whether an element can be found by tag name with the given index.</summary>
+        public bool CanFindTag(string tagName, int index)
+        {
+            return CanFind(Finder.ByTagName(tagName, index));
         }
 
         private TControl CreateControl<TControl>(WatElement element) where TControl : WatControl, new()
@@ -141,16 +166,17 @@ namespace Venturous
             return control;
         }
 
-        private WatElement CreateElement(Predicate<Element> predicate, string searchDescription)
-        {
-            return CreateElement(Find.ByElement(predicate), searchDescription);
-        }
-
-        private WatElement CreateElement(Constraint findBy, string searchDescription)
+        private WatElement CreateElement(Finder finder)
         {
             var element = new WatElement();
-            element.InitializeElement(_document, findBy, this, searchDescription);
+            element.InitializeElement(_document, finder, this);
             return element;
+        }
+
+        private bool CanFind(Finder finder)
+        {
+            RefreshElement();
+            return _root.Element(finder.Constraint).Exists;
         }
 
         private TElement RootAs<TElement>() where TElement : Element
