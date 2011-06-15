@@ -4,7 +4,7 @@
     {
         public PanelDiv PanelDiv
         {
-            get { return Element.FindId<PanelDiv>("panelDiv"); }
+            get { return Element.Find<PanelDiv>("panelDiv"); }
         }
     }
 
@@ -12,12 +12,12 @@
     {
         public void ClickButton()
         {
-            Element.FindId("btnTest").Click();
+            Element.Find("btnTest").Click();
         }
 
         public string LabelText
         {
-            get { return Element.FindId("lblText").Text; }
+            get { return Element.Find("lblText").Text; }
         }
 
         public string ClickAndGetUpdatedText()

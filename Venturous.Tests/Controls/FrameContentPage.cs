@@ -4,12 +4,12 @@
     {
         public MessageDiv MessageDiv1
         {
-            get { return Element.FindId<MessageDiv>("wrapper1"); }
+            get { return Element.Find<MessageDiv>("wrapper1"); }
         }
 
         public MessageDiv MessageDiv2
         {
-            get { return Element.FindId<MessageDiv>("wrapper2"); }
+            get { return Element.Find<MessageDiv>("wrapper2"); }
         }
     }
 
@@ -17,7 +17,7 @@
     {
         public string MessageText
         {
-            get { return Element.FindId("message").Text; }
+            get { return Element.Find("message").Text; }
         }
     }
 }

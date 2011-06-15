@@ -4,7 +4,7 @@
     {
         public string Greeting
         {
-            get { return Element.FindId("greeting").Text; }
+            get { return Element.Find("greeting").Text; }
         }
     }
 }

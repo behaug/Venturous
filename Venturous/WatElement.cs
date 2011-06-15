@@ -2,6 +2,7 @@
 using Venturous.Infrastructure;
 using WatiN.Core;
 using WatiN.Core.Native;
+using WFind = WatiN.Core.Find;
 
 namespace Venturous
 {
@@ -13,10 +14,10 @@ namespace Venturous
         private Document _document;
         private Div _root;
         private INativeElement _nativeElement;
-        private Finder _finder;
+        private By _finder;
         private WatElement _parent;
 
-        private void InitializeElement(Document document, Finder finder, WatElement parent)
+        private void InitializeElement(Document document, By finder, WatElement parent)
         {
             _document = document;
             _finder = finder;
@@ -26,7 +27,7 @@ namespace Venturous
 
         internal void InitializeElement(Document document)
         {
-            _finder = Finder.Body;
+            _finder = By.Body;
             _document = document;
             _nativeElement = new CustomNativeElement(document.Body.NativeElement, _document);
             _root = ElementFactory.CreateElement<Div>(_document.DomContainer, _nativeElement);
@@ -69,96 +70,6 @@ namespace Venturous
             _root = ElementFactory.CreateElement<Div>(_document.DomContainer, _nativeElement);
         }
 
-        /// <summary>Finds a control by id, where the id ends with the given value.</summary>
-        public TControl FindId<TControl>(string id) where TControl : WatControl, new()
-        {
-            return CreateControl<TControl>(FindId(id));
-        }
-
-        /// <summary>Finds an element by id, where the id ends with the given value.</summary>
-        public WatElement FindId(string id)
-        {
-            return CreateElement(Finder.ById(id));
-        }
-
-        /// <summary>Returns whether an element can be found where the id ends with the given value.</summary>
-        public bool CanFindId(string id)
-        {
-            return CanFind(Finder.ById(id));
-        }
-
-        /// <summary>Finds a control by CSS class name.</summary>
-        public TControl FindClass<TControl>(string cssClass) where TControl : WatControl, new()
-        {
-            return CreateControl<TControl>(FindClass(cssClass));
-        }
-
-        /// <summary>Finds an element by CSS class name.</summary>
-        public WatElement FindClass(string cssClass)
-        {
-            return CreateElement(Finder.ByClass(cssClass));
-        }
-
-        /// <summary>Returns whether an element can be found by CSS class name.</summary>
-        public bool CanFindClass(string cssClass)
-        {
-            return CanFind(Finder.ByClass(cssClass));
-        }
-
-        /// <summary>Finds a control by attribute value.</summary>
-        public TControl FindAttribute<TControl>(string attributeName, string value) where TControl : WatControl, new()
-        {
-            return CreateControl<TControl>(FindAttribute(attributeName, value));
-        }
-
-        /// <summary>Finds an element by attribute value.</summary>
-        public WatElement FindAttribute(string attributeName, string value)
-        {
-            return CreateElement(Finder.ByAttribute(attributeName, value));
-        }
-
-        /// <summary>Returns whether an element can be found by attribute value.</summary>
-        public bool CanFindAttribute(string attributeName, string value)
-        {
-            return CanFind(Finder.ByAttribute(attributeName, value));
-        }
-
-        /// <summary>Finds a control by tag name, taking the first one it finds.</summary>
-        public TControl FindTag<TControl>(string tagName) where TControl : WatControl, new()
-        {
-            return CreateControl<TControl>(FindTag(tagName));
-        }
-
-        /// <summary>Finds an element by tag name, taking the first one it finds.</summary>
-        public WatElement FindTag(string tagName)
-        {
-            return CreateElement(Finder.ByTagName(tagName));
-        }
-
-        /// <summary>Returns whether an element can be found by tag name.</summary>
-        public bool CanFindTag(string tagName)
-        {
-            return CanFind(Finder.ByTagName(tagName));
-        }
-
-        /// <summary>Finds a control by tag name, taking the one at the given index.</summary>
-        public TControl FindTag<TControl>(string tagName, int index) where TControl : WatControl, new()
-        {
-            return CreateControl<TControl>(FindTag(tagName, index));
-        }
-
-        /// <summary>Finds an element by tag name, taking the one at the given index.</summary>
-        public WatElement FindTag(string tagName, int index)
-        {
-            return CreateElement(Finder.ByTagName(tagName, index));
-        }
-
-        /// <summary>Returns whether an element can be found by tag name with the given index.</summary>
-        public bool CanFindTag(string tagName, int index)
-        {
-            return CanFind(Finder.ByTagName(tagName, index));
-        }
-
         private TControl CreateControl<TControl>(WatElement element) where TControl : WatControl, new()
         {
             var control = new TControl();
@@ -166,17 +77,11 @@ namespace Venturous
             return control;
         }
 
-        private WatElement CreateElement(Finder finder)
+        private WatElement CreateElement(By finder)
         {
             var element = new WatElement();
             element.InitializeElement(_document, finder, this);
             return element;
-        }
-
-        private bool CanFind(Finder finder)
-        {
-            RefreshElement();
-            return _root.Element(finder.Constraint).Exists;
         }
 
         private TElement RootAs<TElement>() where TElement : Element
@@ -194,7 +99,44 @@ namespace Venturous
             }
         }
 
-        /// <summary>Simulates a mouse click on the element</summary>
+        /// <summary>Finds an element by id</summary>
+        public WatElement Find(string id)
+        {
+            return Find(By.Id(id));
+        }
+
+        /// <summary>Finds the given element</summary>
+        public WatElement Find(By finder)
+        {
+            return CreateElement(finder);
+        }
+
+        /// <summary>Finds a control by id</summary>
+        public TControl Find<TControl>(string id) where TControl : WatControl, new()
+        {
+            return Find<TControl>(By.Id(id));
+        }
+
+        /// <summary>Finds the given control</summary>
+        public TControl Find<TControl>(By finder) where TControl : WatControl, new()
+        {
+            return CreateControl<TControl>(Find(finder));
+        }
+
+        /// <summary>Returns whether an element with the given id exists</summary>
+        public bool CanFind(string id)
+        {
+            return CanFind(By.Id(id));
+        }
+
+        /// <summary>Returns whether the given element exists</summary>
+        public bool CanFind(By finder)
+        {
+            RefreshElement();
+            return _root.Element(finder.Constraint).Exists;
+        }
+
+        /// <summary>Clicks on the element</summary>
         public void Click()
         {
             RootAs<Link>().Click();
@@ -238,20 +180,17 @@ namespace Venturous
             }
         }
 
+        /// <summary>Selects the option with the given value in a select list</summary>
         public void SelectOption(string value)
         {
             RootAs<SelectList>().SelectByValue(value);
         }
 
+        /// <summary>Selects the option with the given index in a select list</summary>
         public void SelectOption(int index)
         {
             var selectList = RootAs<SelectList>();
-            selectList.SelectByValue(selectList.Option(Find.ByIndex(index)).Value);
-        }
-
-        public string GetSelectedValue()
-        {
-            return RootAs<SelectList>().SelectedOption.Value;
+            selectList.SelectByValue(selectList.Option(WFind.ByIndex(index)).Value);
         }
     }
 }

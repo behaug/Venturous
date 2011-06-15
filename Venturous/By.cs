@@ -4,52 +4,57 @@ using WatiN.Core.Constraints;
 
 namespace Venturous
 {
-    internal class Finder
+    public class By
     {
-        public Constraint Constraint { get; private set; }
-        public string Description { get; private set; }
+        internal Constraint Constraint { get; private set; }
+        internal string Description { get; private set; }
 
-        public static readonly Finder Body = new Finder { Constraint = null, Description = "body" };
+        internal static readonly By Body = new By { Constraint = null, Description = "body" };
 
-        public static Finder ById(string id)
+        /// <summary>Finds by id</summary>
+        public static By Id(string id)
         {
-            return new Finder
+            return new By
             {
                 Constraint = Find.ByElement(e => (e.Id ?? "").EndsWith(id)),
                 Description = "#" + id
             };
         }
 
-        public static Finder ByClass(string cssClass)
+        /// <summary>Finds by CSS class</summary>
+        public static By Class(string cssClass)
         {
-            return new Finder
+            return new By
             {
                 Constraint = Find.ByElement(e => e.ClassName == cssClass),
                 Description = "." + cssClass
             };
         }
 
-        public static Finder ByAttribute(string attributeName, string value)
+        /// <summary>Finds by the given attribute</summary>
+        public static By Attribute(string attributeName, string value)
         {
-            return new Finder
+            return new By
             {
                 Constraint = Find.By(attributeName, value),
                 Description = "[" + attributeName + "=" + value + "]"
             };
         }
 
-        public static Finder ByTagName(string tagName)
+        /// <summary>Finds by the given tag name, taking the first one</summary>
+        public static By Tag(string tagName)
         {
-            return new Finder
+            return new By
             {
                 Constraint = Find.ByElement(e => e.TagName.ToLower() == tagName.ToLower()),
                 Description = tagName
             };
         }
 
-        public static Finder ByTagName(string tagName, int index)
+        /// <summary>Finds by the given tag name, taking the one at the given index</summary>
+        public static By Tag(string tagName, int index)
         {
-            return new Finder
+            return new By
             {
                 Constraint = Find.ByElement(e => e.TagName.ToLower() == tagName.ToLower()).And(Find.ByIndex(index)),
                 Description = tagName + ":" + index

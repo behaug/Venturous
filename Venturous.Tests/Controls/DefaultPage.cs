@@ -7,52 +7,52 @@ namespace Venturous.Tests.Controls
     {
         public void ClickServerErrorButton()
         {
-            Element.FindId("btnServerError").Click();
+            Element.Find("btnServerError").Click();
         }
 
         public TestMenu TopMenu
         {
-            get { return Element.FindId<TestMenu>("topMenu"); }
+            get { return Element.Find<TestMenu>("topMenu"); }
         }
 
         public bool HasTopMenu
         {
-            get { return Element.CanFindId("topMenu"); }
+            get { return Element.CanFind("topMenu"); }
         }
 
         public bool HasFlamingLogo
         {
-            get { return Element.CanFindId("flaming_logo"); }
+            get { return Element.CanFind("flaming_logo"); }
         }
 
         public WatElement Dropdown
         {
-            get { return Element.FindId("dropdown"); }
+            get { return Element.Find("dropdown"); }
         }
 
         public string DropdownValue
         {
-            get { return Element.FindId("dropdown_value").Text; }
+            get { return Element.Find("dropdown_value").Text; }
         }
 
         public WatElement Listbox
         {
-            get { return Element.FindId("listbox"); }
+            get { return Element.Find("listbox"); }
         }
 
         public string ListboxValue
         {
-            get { return Element.FindId("listbox_value").Text; }
+            get { return Element.Find("listbox_value").Text; }
         }
 
         public WatElement Multiselect
         {
-            get { return Element.FindId("multiselect"); }
+            get { return Element.Find("multiselect"); }
         }
 
         public string MultiselectValue
         {
-            get { return Element.FindId("multiselect_value").Text; }
+            get { return Element.Find("multiselect_value").Text; }
         }
 
     }
@@ -61,12 +61,12 @@ namespace Venturous.Tests.Controls
     {
         public void ClickGoogle()
         {
-            Element.FindAttribute("resKey", "mnuItem1").FindTag("a").Click();
+            Element.Find(By.Attribute("resKey", "mnuItem1")).Find(By.Tag("a")).Click();
         }
 
         public void ClickBing()
         {
-            Element.FindAttribute("resKey", "mnuItem2").FindTag("span").Click();
+            Element.Find(By.Attribute("resKey", "mnuItem2")).Find(By.Tag("span")).Click();
         }
     }
 
