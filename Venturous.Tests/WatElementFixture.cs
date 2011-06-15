@@ -110,5 +110,38 @@ namespace Venturous.Tests
             _app.OpenDefault();
             Assert.IsFalse(_app.DefaultPage.HasFlamingLogo);
         }
+
+        [Test]
+        public void SelectOption_Dropdown_ByValue()
+        {
+            _app.OpenDefault();
+            _app.DefaultPage.Dropdown.SelectOption("item3");
+            Assert.That(_app.DefaultPage.DropdownValue, Is.EqualTo("item3"));
+        }
+
+        [Test]
+        public void SelectOption_Dropdown_ByIndex()
+        {
+            _app.OpenDefault();
+            _app.DefaultPage.Dropdown.SelectOption(2);
+            Assert.That(_app.DefaultPage.DropdownValue, Is.EqualTo("item3"));
+        }
+
+        [Test]
+        public void SelectOption_Listbox()
+        {
+            _app.OpenDefault();
+            _app.DefaultPage.Listbox.SelectOption("item3");
+            Assert.That(_app.DefaultPage.ListboxValue, Is.EqualTo("item3"));
+        }
+
+        [Test]
+        public void SelectOption_Multiselect()
+        {
+            _app.OpenDefault();
+            _app.DefaultPage.Multiselect.SelectOption("item3");
+            _app.DefaultPage.Multiselect.SelectOption(1); // item2
+            Assert.That(_app.DefaultPage.MultiselectValue, Is.EqualTo("item2,item3"));
+        }
     }
 }

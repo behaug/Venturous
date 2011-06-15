@@ -8,7 +8,46 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
     <asp:LinkButton runat=server ID="btnServerError" OnClick="btnServerError_Click" Text="Server Error" />
+    <p />
+
+    <select id="dropdown" onchange="document.getElementById('dropdown_value').innerHTML = document.getElementById('dropdown').value">
+        <option value="item1">Item 1</option>
+        <option value="item2">Item 2</option>
+        <option value="item3">Item 3</option>
+    </select>
+    <span id="dropdown_value"></span>
+    <p />
+
+    <select id="listbox" size="5" onchange="document.getElementById('listbox_value').innerHTML = document.getElementById('listbox').value">
+        <option value="item1">Item 1</option>
+        <option value="item2">Item 2</option>
+        <option value="item3">Item 3</option>
+    </select>
+    <span id="listbox_value"></span>
+    <p />
+
+    <script type="text/javascript">
+        function showAllSelected() {
+            var val = document.getElementById('multiselect_value');
+            var sel = document.getElementById('multiselect');
+            var vals = [];
+            for (var i = 0; i < sel.options.length; i++) {
+                var opt = sel.options[i];
+                if (opt.selected) vals.push(opt.value);
+            }
+            val.innerHTML = vals.join();
+        }
+    </script>
+    <select id="multiselect" size="5" multiple="multiple" onchange="javscript:showAllSelected();">
+        <option value="item1">Item 1</option>
+        <option value="item2">Item 2</option>
+        <option value="item3">Item 3</option>
+    </select>
+    <span id="multiselect_value"></span>
+    <p />
+
     <div>
         <div id="myList">
             <ul>

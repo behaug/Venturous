@@ -237,5 +237,21 @@ namespace Venturous
                 throw new Exception("Can not set text on non-input field: " + FullFindText());
             }
         }
+
+        public void SelectOption(string value)
+        {
+            RootAs<SelectList>().SelectByValue(value);
+        }
+
+        public void SelectOption(int index)
+        {
+            var selectList = RootAs<SelectList>();
+            selectList.SelectByValue(selectList.Option(Find.ByIndex(index)).Value);
+        }
+
+        public string GetSelectedValue()
+        {
+            return RootAs<SelectList>().SelectedOption.Value;
+        }
     }
 }
