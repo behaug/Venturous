@@ -59,6 +59,8 @@
   <ItemGroup>
     <Compile Include="BrowserType.cs" />
     <Compile Include="By.cs" />
+    <Compile Include="Infrastructure\AutoFieldInitializer.cs" />
+    <Compile Include="Infrastructure\AutoWatElement.cs" />
     <Compile Include="Infrastructure\CustomFireFox.cs" />
     <Compile Include="WatApplication.cs" />
     <Compile Include="WatControl.cs" />

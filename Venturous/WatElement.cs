@@ -17,20 +17,23 @@ namespace Venturous
         private By _finder;
         private WatElement _parent;
 
-        private void InitializeElement(Document document, By finder, WatElement parent)
+        internal WatElement(Document document)
+            : this(By.Body, null, false)
         {
             _document = document;
-            _finder = finder;
-            _parent = parent;
             RefreshElement();
         }
 
-        internal void InitializeElement(Document document)
+        internal WatElement(By finder, WatElement parent, bool checkExists)
         {
-            _finder = By.Body;
-            _document = document;
-            _nativeElement = new CustomNativeElement(document.Body.NativeElement, _document);
-            _root = ElementFactory.CreateElement<Div>(_document.DomContainer, _nativeElement);
+            _finder = finder;
+            _parent = parent;
+
+            if (parent != null)
+                _document = parent._document;
+
+            if (checkExists)
+                RefreshElement();
         }
 
         private string FullFindText()
@@ -53,7 +56,8 @@ namespace Venturous
                 if (_nativeElement != null && _nativeElement.IsElementReferenceStillValid())
                     return;
 
-                InitializeElement(_document);
+                _nativeElement = new CustomNativeElement(_document.Body.NativeElement, _document);
+                _root = ElementFactory.CreateElement<Div>(_document.DomContainer, _nativeElement);
                 return;
             }
 
@@ -79,9 +83,7 @@ namespace Venturous
 
         private WatElement CreateElement(By finder)
         {
-            var element = new WatElement();
-            element.InitializeElement(_document, finder, this);
-            return element;
+            return new WatElement(finder, this, true);
         }
 
         private TElement RootAs<TElement>() where TElement : Element

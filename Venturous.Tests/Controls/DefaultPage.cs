@@ -5,14 +5,19 @@ namespace Venturous.Tests.Controls
 {
     class DefaultPage : WatPage
     {
+        private WatElement _btnServerError = Auto();
+        private WatElement _dropdownValue = Auto("dropdown_value");
+        private WatElement _listboxValue = Auto("listbox_value");
+        private WatElement _multiselectValue = Auto("multiselect_value");
+
+        public TestMenu TopMenu = Auto<TestMenu>();
+        public WatElement Dropdown = Auto();
+        public WatElement Listbox = Auto();
+        public WatElement Multiselect = Auto();
+
         public void ClickServerErrorButton()
         {
-            Element.Find("btnServerError").Click();
-        }
-
-        public TestMenu TopMenu
-        {
-            get { return Element.Find<TestMenu>("topMenu"); }
+            _btnServerError.Click();
         }
 
         public bool HasTopMenu
@@ -20,41 +25,30 @@ namespace Venturous.Tests.Controls
             get { return Element.CanFind("topMenu"); }
         }
 
+        public bool HasTopMenuLowercase
+        {
+            get { return Element.CanFind("topmenu"); }
+        }
+
         public bool HasFlamingLogo
         {
             get { return Element.CanFind("flaming_logo"); }
         }
 
-        public WatElement Dropdown
-        {
-            get { return Element.Find("dropdown"); }
-        }
-
         public string DropdownValue
         {
-            get { return Element.Find("dropdown_value").Text; }
-        }
-
-        public WatElement Listbox
-        {
-            get { return Element.Find("listbox"); }
+            get { return _dropdownValue.Text; }
         }
 
         public string ListboxValue
         {
-            get { return Element.Find("listbox_value").Text; }
-        }
-
-        public WatElement Multiselect
-        {
-            get { return Element.Find("multiselect"); }
+            get { return _listboxValue.Text; }
         }
 
         public string MultiselectValue
         {
-            get { return Element.Find("multiselect_value").Text; }
+            get { return _multiselectValue.Text; }
         }
-
     }
 
     class TestMenu : WatControl

@@ -112,6 +112,13 @@ namespace Venturous.Tests
         }
 
         [Test]
+        public void CanFindId_WhenElementExistsButWrongCase_ReturnsTrue()
+        {
+            _app.OpenDefault();
+            Assert.IsTrue(_app.DefaultPage.HasTopMenuLowercase);
+        }
+
+        [Test]
         public void SelectOption_Dropdown_ByValue()
         {
             _app.OpenDefault();

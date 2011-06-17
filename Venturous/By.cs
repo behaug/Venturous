@@ -10,13 +10,14 @@ namespace Venturous
         internal string Description { get; private set; }
 
         internal static readonly By Body = new By { Constraint = null, Description = "body" };
+        internal static readonly By Auto = new By { Constraint = null, Description = "auto" };
 
         /// <summary>Finds by id</summary>
         public static By Id(string id)
         {
             return new By
             {
-                Constraint = Find.ByElement(e => (e.Id ?? "").EndsWith(id)),
+                Constraint = Find.ByElement(e => (e.Id ?? "").ToLower().EndsWith(id.ToLower())),
                 Description = "#" + id
             };
         }

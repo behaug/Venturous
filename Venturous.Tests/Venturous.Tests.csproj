@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoFieldInitializerFixture.cs" />
     <Compile Include="Controls\DefaultPage.cs" />
     <Compile Include="WatElementFixture.cs" />
     <Compile Include="Controls\FrameContentPage.cs" />

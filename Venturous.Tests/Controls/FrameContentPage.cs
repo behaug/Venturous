@@ -15,9 +15,11 @@
 
     class MessageDiv : WatControl
     {
+        private WatElement _message = Auto();
+
         public string MessageText
         {
-            get { return Element.Find("message").Text; }
+            get { return _message.Text; }
         }
     }
 }

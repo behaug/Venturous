@@ -9,9 +9,7 @@ namespace Venturous
     {
         internal void InitializePage(Document document)
         {
-            var element = new WatElement();
-            element.InitializeElement(document);
-            InitializeControl(element);
+            InitializeControl(new WatElement(document));
         }
     }
 }

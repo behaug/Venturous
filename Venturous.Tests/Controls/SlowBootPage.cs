@@ -2,9 +2,11 @@
 {
     class SlowBootPage : WatPage
     {
+        private WatElement _greeting = Auto();
+
         public string Greeting
         {
-            get { return Element.Find("greeting").Text; }
+            get { return _greeting.Text; }
         }
     }
 }
