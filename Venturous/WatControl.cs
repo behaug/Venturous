@@ -38,9 +38,23 @@ namespace Venturous
 
         /// <summary>Indicates that the control will be automatically assigned</summary>
         protected static TControl Auto<TControl>() 
-            where TControl : WatControl
+            where TControl : WatControl, new()
         {
-            return null; // TODO: Use Proxy to enable custom finder
+            return new TControl { Element = Auto() };
+        }
+
+        /// <summary>Indicates that the control will be automatically assigned</summary>
+        protected static TControl Auto<TControl>(string id)
+            where TControl : WatControl, new()
+        {
+            return new TControl { Element = Auto(id) };
+        }
+
+        /// <summary>Indicates that the control will be automatically assigned</summary>
+        protected static TControl Auto<TControl>(By finder)
+            where TControl : WatControl, new()
+        {
+            return new TControl { Element = Auto(finder) };
         }
     }
 }

@@ -2,10 +2,7 @@
 {
     class UpdPanelPage : WatPage
     {
-        public PanelDiv PanelDiv
-        {
-            get { return Element.Find<PanelDiv>("panelDiv"); }
-        }
+        public PanelDiv PanelDiv = Auto<PanelDiv>();
     }
 
     class PanelDiv : WatControl

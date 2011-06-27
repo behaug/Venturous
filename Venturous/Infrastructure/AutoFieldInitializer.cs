@@ -10,7 +10,12 @@ namespace Venturous.Infrastructure
     {
         public void InitializeAutoFields(WatControl control)
         {
-            var fields = control.GetType().GetFields(
+            InitializeAutoFields(control, control.GetType());
+        }
+
+        private void InitializeAutoFields(WatControl control, Type type)
+        {
+            var fields = type.GetFields(
                 BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
 
             foreach (var field in fields)
@@ -21,13 +26,24 @@ namespace Venturous.Infrastructure
                 if (field.FieldType.IsSubclassOf(typeof(WatControl)))
                     AssignControl(field, control);
             }
+
+            // Also initialize base classes
+            if (type.BaseType != null && type.BaseType.IsSubclassOf(typeof(WatControl)))
+                InitializeAutoFields(control, type.BaseType);
         }
 
         private void AssignControl(FieldInfo field, WatControl control)
         {
-            var instance = (WatControl)field.FieldType.GetConstructor(new Type[0]).Invoke(null);
-            instance.InitializeControl(CreateElement(field, control));
-            field.SetValue(control, instance);
+            var instance = field.GetValue(control) as WatControl;
+            if (instance == null)
+                return; // This control is not marked with Auto
+
+            var auto = instance.Element as AutoWatElement;
+            if (auto == null)
+                return; // No auto element found
+
+            var element = CreateElement(field.Name, auto, control);
+            instance.InitializeControl(element);
         }
 
         private void AssignElement(FieldInfo field, WatControl control)
@@ -36,19 +52,17 @@ namespace Venturous.Infrastructure
             if (auto == null)
                 return; // This field is not marked with Auto
 
-            var element = CreateElement(field, control);
+            var element = CreateElement(field.Name, auto, control);
             field.SetValue(control, element);
         }
 
-        private WatElement CreateElement(FieldInfo field, WatControl control)
+        private WatElement CreateElement(string fieldName, AutoWatElement auto, WatControl control)
         {
-            var auto = field.GetValue(control) as AutoWatElement;
-
             By finder;
             if (auto != null && auto.Finder != By.Auto)
                 finder = auto.Finder;
             else
-                finder = By.Id(GetElementId(field.Name));
+                finder = By.Id(GetElementId(fieldName));
 
             return new WatElement(finder, control.Element, false);
         }
