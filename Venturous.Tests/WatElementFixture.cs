@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using NUnit.Framework;
 using Venturous.Tests.Controls;
 using WatiN.Core.Exceptions;
@@ -81,6 +82,17 @@ namespace Venturous.Tests
             Assert.That(page.Text2.Text, Is.EqualTo("2"));
             Assert.That(page.Button1.Text, Is.EqualTo("3"));
             Assert.That(page.Textarea1.Text, Is.EqualTo("4"));
+        }
+
+        [Test]
+        public void SetText_WithNonAsciiCharacters_EncodesProperly()
+        {
+            _app.OpenTextAndValue();
+            var page = _app.TextAndValuePage;
+
+            page.Text1.Text = "ÆØÅæøå";
+
+            Assert.That(page.Text1.Text, Is.EqualTo("ÆØÅæøå"));
         }
 
         [Test]
