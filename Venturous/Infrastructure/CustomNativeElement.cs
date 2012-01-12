@@ -41,7 +41,7 @@ namespace Venturous.Infrastructure
                 return;
 
             SetAttributeValue("waittoken", "waittoken");
-            _doc.Element(Find.By("waittoken", "waittoken")).WaitUntilRemoved();
+            _doc.Element(Find.By("waittoken", "waittoken")).WaitUntilRemoved(Settings.WaitForCompleteTimeOut);
         }
 
         private void Wait(int milliseconds)

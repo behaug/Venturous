@@ -1,4 +1,5 @@
 ﻿using System;
+using WatiN.Core;
 
 namespace Venturous
 {
@@ -12,6 +13,13 @@ namespace Venturous
         protected WatApplication(BrowserType browserType)
         {
             _browser = new WatBrowser(browserType);
+        }
+
+        /// <summary>Sets the number of seconds to wait for a request to complete. The default is 30 sec. Increase this if the application is sometimes too slow.</summary>
+        public void SetWaitForCompleteTimeout(int seconds)
+        {
+            Settings.WaitForCompleteTimeOut = seconds;
+            Settings.WaitUntilExistsTimeOut = seconds;
         }
 
         public WatBrowser Browser
