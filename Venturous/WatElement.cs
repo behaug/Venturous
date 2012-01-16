@@ -1,7 +1,6 @@
 ﻿using System;
 using Venturous.Infrastructure;
 using WatiN.Core;
-using WatiN.Core.Native;
 using WFind = WatiN.Core.Find;
 
 namespace Venturous
@@ -11,11 +10,11 @@ namespace Venturous
     /// </summary>
     public class WatElement
     {
-        private Document _document;
+        private readonly Document _document;
         private Div _root;
-        private INativeElement _nativeElement;
-        private By _finder;
-        private WatElement _parent;
+        private CustomNativeElement _nativeElement;
+        private readonly By _finder;
+        private readonly WatElement _parent;
 
         internal WatElement(Document document)
             : this(By.Body, null, false)
@@ -186,6 +185,7 @@ namespace Venturous
         public void SelectOption(string value)
         {
             RootAs<SelectList>().SelectByValue(value);
+            _nativeElement.WaitForComplete();
         }
 
         /// <summary>Selects the option with the given index in a select list</summary>
@@ -193,6 +193,7 @@ namespace Venturous
         {
             var selectList = RootAs<SelectList>();
             selectList.SelectByValue(selectList.Option(WFind.ByIndex(index)).Value);
+            _nativeElement.WaitForComplete();
         }
     }
 }

@@ -29,6 +29,14 @@ namespace Venturous.Tests
         }
 
         [Test]
+        public void WaitsForUpdatePanelAfterDropdownSelection()
+        {
+            _app.OpenUpdPanel();
+            _app.UpdPanelPage.PanelDiv.SelectDropdownOption("3");
+            Assert.That(_app.UpdPanelPage.PanelDiv.IsAppearOnThirdShown);
+        }
+
+        [Test]
         public void ThrowsOnServerError()
         {
             _app.OpenDefault();

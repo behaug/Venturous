@@ -22,7 +22,11 @@ namespace Venturous.Infrastructure
         public override void FireEvent(string eventName, NameValueCollection eventProperties)
         {
             base.FireEvent(eventName, eventProperties);
+            WaitForComplete();
+        }
 
+        public void WaitForComplete()
+        {
             try
             {
                 WaitForAsyncPostback();

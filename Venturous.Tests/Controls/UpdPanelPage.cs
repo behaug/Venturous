@@ -9,6 +9,7 @@
     {
         private WatElement _btnTest = Auto();
         private WatElement _lblText = Auto();
+        private WatElement _ddlDropdown = Auto();
 
         public void ClickButton()
         {
@@ -24,6 +25,19 @@
         {
             ClickButton();
             return LabelText;
+        }
+
+        public void SelectDropdownOption(string optionValue)
+        {
+            _ddlDropdown.SelectOption(optionValue);
+        }
+
+        public bool IsAppearOnThirdShown
+        {
+            get
+            {
+                return Element.CanFind("lblAppearOnThird");
+            }
         }
     }
 
