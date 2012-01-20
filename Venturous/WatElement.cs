@@ -184,7 +184,11 @@ namespace Venturous
         /// <summary>Selects the option with the given value in a select list</summary>
         public void SelectOption(string value)
         {
-            RootAs<SelectList>().SelectByValue(value);
+            var selectList = RootAs<SelectList>();
+            if (_nativeElement.TagName.ToLower() != "select")
+                throw new Exception("Can not use SelectOption on tag of type " + _nativeElement.TagName + ": " + FullFindText());
+
+            selectList.SelectByValue(value);
             _nativeElement.WaitForComplete();
         }
 
@@ -192,6 +196,9 @@ namespace Venturous
         public void SelectOption(int index)
         {
             var selectList = RootAs<SelectList>();
+            if (_nativeElement.TagName.ToLower() != "select")
+                throw new Exception("Can not use SelectOption on tag of type " + _nativeElement.TagName + ": " + FullFindText());
+
             selectList.SelectByValue(selectList.Option(WFind.ByIndex(index)).Value);
             _nativeElement.WaitForComplete();
         }

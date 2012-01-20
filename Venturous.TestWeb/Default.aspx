@@ -28,6 +28,9 @@
     <span id="listbox_value"></span>
     <p />
 
+    <input type="text" id="txtInput" />
+    <p />
+
     <script type="text/javascript">
         function showAllSelected() {
             var val = document.getElementById('multiselect_value');

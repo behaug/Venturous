@@ -14,6 +14,7 @@ namespace Venturous.Tests.Controls
         public WatElement Dropdown = Auto();
         public WatElement Listbox = Auto();
         public WatElement Multiselect = Auto();
+        public WatElement TxtInput = Auto();
 
         public void ClickServerErrorButton()
         {

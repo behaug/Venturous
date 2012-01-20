@@ -147,6 +147,13 @@ namespace Venturous.Tests
         }
 
         [Test]
+        public void SelectOption_OnNonSelectElement_ThrowsException()
+        {
+            _app.OpenDefault();
+            Assert.Throws<Exception>(() => _app.DefaultPage.TxtInput.SelectOption(2));
+        }
+
+        [Test]
         public void SelectOption_Listbox()
         {
             _app.OpenDefault();
