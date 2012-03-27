@@ -11,6 +11,8 @@
 
     <asp:LinkButton runat=server ID="btnServerError" OnClick="btnServerError_Click" Text="Server Error" />
     <p />
+    <a id="open_window" href="#" onclick="window.open('framecontent.htm','Inside','toolbar=no,resizable=yes,fullscreen=no,scrollbars=yes,statusbar=no,menubar=no')">Open Window</a>
+    <p />
 
     <select id="dropdown" onchange="document.getElementById('dropdown_value').innerHTML = document.getElementById('dropdown').value">
         <option value="item1">Item 1</option>

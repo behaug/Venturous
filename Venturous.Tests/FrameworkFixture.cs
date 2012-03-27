@@ -96,5 +96,16 @@ namespace Venturous.Tests
             _app.OpenSlowBoot();
             Assert.That(_app.SlowBootPage.Greeting, Is.EqualTo("Hello"));
         }
+
+        [Test]
+        public void CanGetBrowserForWindow()
+        {
+            // TODO: This doesn't work for IE yet! It doesn't find the window by title
+            _app.OpenDefault();
+            _app.DefaultPage.ClickOpenWidowLink();
+            var window = _app.Browser.GetBrowserForWindow("Inside");
+            Assert.That(window.Page<FrameContentPage>().MessageDiv1.MessageText, Is.EqualTo("Wrapper1 message"));
+            window.Dispose();
+        }
     }
 }

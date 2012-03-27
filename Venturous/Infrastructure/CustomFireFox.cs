@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using WatiN.Core;
+using WatiN.Core.Native.Mozilla;
 
 namespace Venturous.Infrastructure
 {
@@ -8,6 +9,28 @@ namespace Venturous.Infrastructure
     /// </summary>
     class CustomFireFox : FireFox
     {
+        #region AttachToCustomFireFoxHelper
+        private class AttachToCustomFireFoxHelper : AttachToFireFoxHelper
+        {
+            protected override FireFox  CreateBrowserInstance(FFBrowser browser)
+            {
+ 	             return new CustomFireFox(browser);
+            }
+        }
+        #endregion
+
+        static CustomFireFox()
+        {
+            RegisterAttachToHelper(typeof(CustomFireFox), new AttachToCustomFireFoxHelper());
+        }
+
+        public CustomFireFox()
+        {}
+
+        public CustomFireFox(FFBrowser browser)
+            :base(browser)
+        {}
+
         public override void WaitForComplete(int waitForCompleteTimeOut)
         {
             base.WaitForComplete(waitForCompleteTimeOut);

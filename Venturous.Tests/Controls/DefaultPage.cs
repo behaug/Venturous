@@ -9,6 +9,7 @@ namespace Venturous.Tests.Controls
         private WatElement _dropdownValue = Auto("dropdown_value");
         private WatElement _listboxValue = Auto("listbox_value");
         private WatElement _multiselectValue = Auto("multiselect_value");
+        private WatElement _openWidow = Auto("open_window");
 
         public TestMenu TopMenu = Auto<TestMenu>();
         public WatElement Dropdown = Auto();
@@ -49,6 +50,11 @@ namespace Venturous.Tests.Controls
         public string MultiselectValue
         {
             get { return _multiselectValue.Text; }
+        }
+
+        public void ClickOpenWidowLink()
+        {
+            _openWidow.Click();
         }
     }
 

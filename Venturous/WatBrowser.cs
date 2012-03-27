@@ -10,6 +10,7 @@ namespace Venturous
     public class WatBrowser : IDisposable
     {
         private Browser _browser;
+        private Type _browserType;
 
         /// <summary>Instantiates a browser using Internet Explorer as the browser type</summary>
         public WatBrowser()
@@ -30,6 +31,14 @@ namespace Venturous
                 default:
                     throw new ArgumentException("The given browser type is not supported: " + browserType);
             }
+
+            _browserType = _browser.GetType();
+        }
+
+        private WatBrowser(Browser browser)
+        {
+            _browser = browser;
+            _browserType = _browser.GetType();
         }
 
         /// <summary>Closes the browser</summary>
@@ -48,6 +57,14 @@ namespace Venturous
         public TPage Frame<TPage>(int index) where TPage : WatPage, new()
         {
             return CreatePage<TPage>(_browser.Frames[index]);
+        }
+
+        /// <summary>Returns a new browser instance for the window with the given title</summary>
+        public WatBrowser GetBrowserForWindow(string title)
+        {
+            var newBrowser = Browser.AttachTo(_browserType, Find.ByTitle(title));
+            var windowBrowser = new WatBrowser(newBrowser);
+            return windowBrowser;
         }
 
         private TPage CreatePage<TPage>(Document document) where TPage : WatPage, new()

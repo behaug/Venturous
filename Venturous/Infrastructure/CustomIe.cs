@@ -1,5 +1,6 @@
 ﻿using SHDocVw;
 using WatiN.Core;
+using WatiN.Core.Native.InternetExplorer;
 
 namespace Venturous.Infrastructure
 {
@@ -22,7 +23,30 @@ namespace Venturous.Infrastructure
         }
         #endregion
 
+        #region AttachToCustomIeHelper
+        private class AttachToCustomIeHelper : AttachToIeHelper
+        {
+            protected override IE CreateBrowserInstance(IEBrowser browser)
+            {
+                return new CustomIe(browser);
+            }
+        }
+        #endregion
+
+        static CustomIe()
+        {
+            RegisterAttachToHelper(typeof(CustomIe), new AttachToCustomIeHelper());
+        }
+
         private ErrorDetails _error;
+
+        private CustomIe(IEBrowser browser)
+            : base(browser)
+        {
+            var internetExplorer = (InternetExplorerClass)InternetExplorer;
+            internetExplorer.BeforeNavigate += BeforeNavigate;
+            internetExplorer.NavigateError += NavigateError;
+        }
 
         public CustomIe()
         {
