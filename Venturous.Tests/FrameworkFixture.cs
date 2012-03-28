@@ -12,7 +12,7 @@ namespace Venturous.Tests
         [TestFixtureSetUp]
         public void Setup()
         {
-            _app = new TestWeb(BrowserType.FireFox);
+            _app = new TestWeb(BrowserType.IE);
         }
 
         [TestFixtureTearDown]
@@ -100,7 +100,6 @@ namespace Venturous.Tests
         [Test]
         public void CanGetBrowserForWindow()
         {
-            // TODO: This doesn't work for IE yet! It doesn't find the window by title
             _app.OpenDefault();
             _app.DefaultPage.ClickOpenWidowLink();
             var window = _app.Browser.GetBrowserForWindow("Inside");

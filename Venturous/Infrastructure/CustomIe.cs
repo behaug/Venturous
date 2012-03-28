@@ -1,4 +1,5 @@
-﻿using SHDocVw;
+﻿using System;
+using SHDocVw;
 using WatiN.Core;
 using WatiN.Core.Native.InternetExplorer;
 
@@ -43,8 +44,8 @@ namespace Venturous.Infrastructure
         private CustomIe(IEBrowser browser)
             : base(browser)
         {
-            var internetExplorer = (InternetExplorerClass)InternetExplorer;
-            internetExplorer.BeforeNavigate += BeforeNavigate;
+            var internetExplorer = (InternetExplorer)browser.WebBrowser;
+            internetExplorer.BeforeNavigate2 += BeforeNavigate2;
             internetExplorer.NavigateError += NavigateError;
         }
 
@@ -61,6 +62,11 @@ namespace Venturous.Infrastructure
 
             if (_error != null)
                 throw new ServerErrorException(_error.Url, Title, Html);
+        }
+
+        private void BeforeNavigate2(object pDisp, ref object url, ref object flags, ref object targetFrameName, ref object postData, ref object headers, ref bool cancel)
+        {
+            _error = null;
         }
 
         void BeforeNavigate(string url, int flags, string targetFrameName, ref object postData, string headers, ref bool cancel)
